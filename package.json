@@ -1,0 +1,26 @@
+{
+  "name": "sass-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-sass": "node-sass -w scss -o css",
+    "start": "npm run watch-sass & live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glippi/sass-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glippi/sass-playground/issues"
+  },
+  "homepage": "https://github.com/glippi/sass-playground#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "node-sass": "^4.13.0"
+  }
+}
