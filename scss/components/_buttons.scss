@@ -1,4 +1,7 @@
 @import "../abstracts/_colors.scss";
+$TOOLTIP-BG-COLOR: #383838;
+$TOOLTIP-COLOR: #fff;
+$ARROW-SIZE: 8px;
 
 .first-screenshot__button {
   background-color: $PRIMARY-BUTTON-BG;
@@ -14,8 +17,8 @@
   .first-screenshot__tooltip{
     visibility: hidden;
     width: 100px;
-    background-color: #383838;
-    color: #fff;
+    background-color: $TOOLTIP-BG-COLOR;
+    color: $TOOLTIP-COLOR;
     text-align: center;
     padding: 15px;
     border-radius: 4px;
@@ -28,71 +31,141 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  .first-screenshot__tooltip--top {
+  .first-screenshot__tooltip--top-arrow-right {
     bottom: 150%;
     left: 50%;
-    margin-left: calc(-50% - 4px);
+    margin-left: calc(-50% - #{$ARROW-SIZE/2});
+
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 100%; /* At the bottom of the tooltip */
+      left: 80%;
+      margin-left: -$ARROW-SIZE;
+      border-width: $ARROW-SIZE;
+      border-style: solid;
+      border-color: $TOOLTIP-BG-COLOR transparent transparent transparent;
+    }
+  }
+
+  .first-screenshot__tooltip--top-arrow-center {
+    bottom: 150%;
+    left: 50%;
+    margin-left: calc(-50% - #{$ARROW-SIZE/2});
 
     &::after {
       content: " ";
       position: absolute;
       top: 100%; /* At the bottom of the tooltip */
       left: 50%;
-      margin-left: -8px;
-      border-width: 8px;
+      margin-left: -$ARROW-SIZE;
+      border-width: $ARROW-SIZE;
       border-style: solid;
-      border-color: black transparent transparent transparent;
+      border-color: $TOOLTIP-BG-COLOR transparent transparent transparent;
     }
   }
 
-  .first-screenshot__tooltip--left {
+  .first-screenshot__tooltip--left-arrow-center {
+    top: 50%;
     right: 120%;
-    top: 50%;
     transform: translateY(-50%); 
 
     &::after {
       content: " ";
       position: absolute;
-      top: 100%; /* At the bottom of the tooltip */
-      left: 50%;
-      margin-left: -8px;
-      border-width: 8px;
+      top: calc(50% - #{$ARROW-SIZE});
+      left: calc(100% + #{$ARROW-SIZE});
+      margin-left: -$ARROW-SIZE;
+      border-width: $ARROW-SIZE;
       border-style: solid;
-      border-color: black transparent transparent transparent;
+      border-color: transparent transparent transparent $TOOLTIP-BG-COLOR ;
     }
   }
 
-  .first-screenshot__tooltip--right {
+
+  .first-screenshot__tooltip--top-arrow-left {
+    bottom: 150%;
+    left: 50%;
+    margin-left: calc(-50% - #{$ARROW-SIZE/2});
+
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 100%;
+      left: 20%;
+      margin-left: -$ARROW-SIZE;
+      border-width: $ARROW-SIZE;
+      border-style: solid;
+      border-color: $TOOLTIP-BG-COLOR transparent transparent transparent;
+    }
+  }
+
+  .first-screenshot__tooltip--right-arrow-center {
+    top: 50%;
     left: 120%;
-    top: 50%;
     transform: translateY(-50%); 
 
     &::after {
       content: " ";
       position: absolute;
-      top: 100%; /* At the bottom of the tooltip */
-      left: 50%;
-      margin-left: -8px;
-      border-width: 8px;
+      top: calc(50% + -#{$ARROW-SIZE});
+      right: 100%;
+      margin-left: -$ARROW-SIZE;
+      border-width: $ARROW-SIZE;
       border-style: solid;
-      border-color: black transparent transparent transparent;
+      border-color: transparent $TOOLTIP-BG-COLOR transparent transparent;
     }
   }
 
-  .first-screenshot__tooltip--bottom {
+  .first-screenshot__tooltip--bottom-arrow-right {
     top: 150%;
     left: 50%;
-    margin-left: calc(-50% - 4px);
+    margin-left: calc(-50% - #{$ARROW-SIZE/2});
 
     &::after {
       content: " ";
       position: absolute;
-      top: 100%; /* At the bottom of the tooltip */
-      left: 50%;
-      margin-left: -8px;
-      border-width: 8px;
+      bottom: 100%;
+      right: 80%;
+      margin-left: -$ARROW-SIZE;
+      border-width: $ARROW-SIZE;
       border-style: solid;
-      border-color: black transparent transparent transparent;
+      border-color: transparent transparent $TOOLTIP-BG-COLOR transparent;
+    }
+  }
+
+  .first-screenshot__tooltip--bottom-arrow-center {
+    top: 150%;
+    left: 50%;
+    margin-left: calc(-50% - #{$ARROW-SIZE/2});
+
+    &::after {
+      content: " ";
+      position: absolute;
+      bottom: 100%;
+      right: 50%;
+      margin-left: -$ARROW-SIZE;
+      border-width: $ARROW-SIZE;
+      border-style: solid;
+      border-color: transparent transparent $TOOLTIP-BG-COLOR transparent;
+    }
+  }
+
+
+  .first-screenshot__tooltip--bottom-arrow-left {
+    top: 150%;
+    left: 50%;
+    margin-left: calc(-50% - #{$ARROW-SIZE/2});
+
+    &::after {
+      content: " ";
+      position: absolute;
+      bottom: 100%;
+      right: 80%;
+      margin-left: -$ARROW-SIZE;
+      border-width: $ARROW-SIZE;
+      border-style: solid;
+      border-color: transparent transparent $TOOLTIP-BG-COLOR transparent;
     }
   }
 
